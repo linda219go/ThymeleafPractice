@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Store Delivery Service</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<h1>Store Management System</h1>
+<br>
+<div >
+<!--<h1 th:text="${storelist}"/>-->
+    <div class="col-auto">
+    <a th:href="@{/showNewStoreForm}" class="btn btn-primary btn-sm mb-3"> Make Store </a>
+    <a th:href="@{/items}" class="btn btn-info btn-sm mb-3"> Show Items </a>
+    <a th:href="@{/drones}" class="btn btn-info btn-sm mb-3"> Show Drones </a>
+
+    </div>
+    <table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Store ID</th>
+        <th scope="col">Store Name</th>
+        <th scope="col">Revenue</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="store:${storelist}">
+        <td th:text="${store.id}"/>
+        <td th:text="${store.storeName}"/>
+        <td th:text="${store.revenue}"/>
+
+        <td> <a th:href="@{/showStoreUpdateForm/{id}(id=${store.id})}" class="btn btn-primary">Update</a>
+<!--            <a th:href="@{/deleteStore/{id}(id=${store.id})}" class="btn btn-danger">Delete</a>-->
+        </td>
+
+    </tbody>
+</table>
+</div>
+</body>
+</html>

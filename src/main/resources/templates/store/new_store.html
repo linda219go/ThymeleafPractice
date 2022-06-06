@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Make New Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Store Management System</h1>
+    <hr>
+    <h2>Save Store</h2>
+
+    <form action="#" th:action="@{/saveStore}" th:object="${store}" method="POST">
+        <input type="text" th:field="*{storeName}" placeholder="Store Name" class="form-control mb-6 col-6">
+        <input type="number" th:field="*{revenue}" placeholder="Store Origin Revenue" class="form-control mb-6 col-6">
+        <div class="col-auto">
+        <button type="submit" class="btn btn-info col-2">Save Store</button>
+        <button type="reset" class="btn btn-secondary col-2">Cancel</button>
+        </div>
+    </form>
+    <hr>
+    <a th:href="@{/}"> Back to store List</a>
+</div>
+</body>
+</html>

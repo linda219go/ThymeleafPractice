@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sell New Item</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h2>Sell New Item</h2>
+    <hr>
+    <form action="#" th:action="@{/saveItem}" th:object="${item}" method="POST">
+        <input type="text" th:field="*{itemName}" placeholder="Item Name" class="form-control mb-6 col-6">
+        <input type="number" th:field="*{unitWeight}" placeholder="Item Unit Weight" class="form-control mb-6 col-6">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select Store:</label>
+            <select th:field="*{store}" class="form-control" id="exampleFormControlSelect1">
+                <th:block th:each="store : ${storeLst}">
+                    <option th:text="${store.storeName}" th:value="${store.id}"/>
+                </th:block>
+            </select>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-info col-2">Save Item</button>
+            <button type="reset" class="btn btn-secondary col-2">Cancel</button>
+        </div>
+    </form>
+    <hr>
+    <a th:href="@{/items}"> Back to item List</a>
+    <a th:href="@{/}"> Back to Home</a>
+</div>
+</body>
+</html>

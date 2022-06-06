@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Items</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<h1>Item List</h1>
+<br>
+<div >
+    <!--<h1 th:text="${storelist}"/>-->
+    <a th:href="@{/showNewItemForm}" class="btn btn-primary btn-sm mb-3"> Sell Item </a>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Item ID</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Item Unit Weight</th>
+            <th scope="col">Store ID</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item:${itemList}">
+            <td th:text="${item.id}"/>
+            <td th:text="${item.itemName}"/>
+            <td th:text="${item.unitWeight}"/>
+            <td th:text="${item.store.id}"/>
+        </tbody>
+    </table>
+</div>
+<hr>
+<a th:href="@{/}"> Back to store List</a>
+</body>
+</html>

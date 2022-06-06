@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Drones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<h1>Drone List</h1>
+<br>
+<div >
+    <!--<h1 th:text="${storelist}"/>-->
+    <a th:href="@{/showNewDroneForm}" class="btn btn-primary btn-sm mb-3">Make Drone</a>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Drone ID</th>
+            <th scope="col">Drone Number</th>
+            <th scope="col">Origin Capacity</th>
+            <th scope="col">Remaining Capacity</th>
+            <th scope="col">Num of Orders</th>
+            <th scope="col">Trips Left</th>
+            <th scope="col">Store</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="drone:${droneList}">
+            <td th:text="${drone.id}"/>
+            <td th:text="${drone.droneNumber}"/>
+            <td th:text="${drone.capacity}"/>
+            <td th:text="${drone.remainCapacity}"/>
+            <td th:text="${drone.numOfOrders}"/>
+            <td th:text="${drone.tripsLeft}"/>
+            <td th:text="${drone.store.id}"/>
+        </tbody>
+    </table>
+</div>
+<hr>
+<a th:href="@{/}"> Back to store List</a>
+</body>
+</html>

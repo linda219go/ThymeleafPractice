@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Store Management System</h1>
+    <hr>
+    <h2>Save Store</h2>
+
+    <form action="#" th:action="@{/saveStore}" th:object="${store}"
+          method="POST">
+
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{id}" />
+
+        <input type="text" th:field="*{storeName}" class="form-control mb-4 col-6">
+
+        <input type="text" th:field="*{revenue}" class="form-control mb-4 col-6">
+
+        <button type="submit" class="btn btn-info col-2"> Update Store</button>
+        <button type="reset" class="btn btn-secondary col-2">Cancel</button>
+    </form>
+
+    <hr>
+
+    <a th:href = "@{/}"> Back to Home</a>
+</div>
+</body>
+</html>
